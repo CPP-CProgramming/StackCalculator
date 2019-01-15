@@ -106,15 +106,13 @@ void calculate(Stack *stack, char **s, int size)
 			push(stack, s[i]);
 		}
 	}
-
-
 }
 
 int main(void)
 {
 	Stack stack;
 	stack.top = NULL;
-	char a[100] = "( ( 3 + 4 ) * 5 - 5 * 7 * 5 - 5 * 10";
+	char a[100] = "( ( 3 + 4 ) * 5 ) - 5 * 7 * 5 - 5 * 10";
 	int size = 1;
 	for (int i = 0; i < strlen(a); i++)
 	{
@@ -147,6 +145,7 @@ int main(void)
 	for (int i = 0; i < size; i++)
 	{
 		strcpy(input[i], ptr2);
+		ptr2 = strtok(NULL, " ");
 	}
 	calculate(&stack, input, size);
 	system("pause");
